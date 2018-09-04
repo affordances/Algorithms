@@ -2,17 +2,19 @@
 
 import math
 
-def recipe_batches(recipe, ingredients):
-    counts = {}
-    for key, value in recipe.items():
-        if not key in ingredients:
-            return 0
-        elif key in counts:
-            counts[key] += ingredients[key] // recipe[key]
-        else:
-            counts[key] = ingredients[key] // recipe[key]
-    return min(counts.values())
+# def recipe_batches(recipe, ingredients):
+#     counts = {}
+#     for key, value in recipe.items():
+#         if not key in ingredients:
+#             return 0
+#         elif key in counts:
+#             counts[key] += ingredients[key] // recipe[key]
+#         else:
+#             counts[key] = ingredients[key] // recipe[key]
+#     return min(counts.values())
 
+def recipe_batches(recipe, ingredients):
+        return min(ingredients.get(ingredient, 0) // amount for ingredient, amount in recipe.items())
 
 if __name__ == '__main__':
   # Change the entries of these dictionaries to test
